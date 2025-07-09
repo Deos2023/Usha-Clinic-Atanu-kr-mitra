@@ -173,7 +173,7 @@ export default function Contact() {
             {/* Map */}
             <div className="h-full min-h-80 rounded-lg overflow-hidden shadow-xl">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.123456789012!2d88.12345678901234!3d22.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDA3JzI0LjQiTiA4OMKwMDcnMjQuNiJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.0930969822275!2d88.30873799999999!3d22.500689999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027b8a95e89345%3A0x6e1fede2aff3f6f7!2sDr.%20Atanu%20Maitra!5e0!3m2!1sen!2sin!4v1752051272727!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
