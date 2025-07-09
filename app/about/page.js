@@ -40,7 +40,7 @@ export default function About() {
                 Founded in July 1967 by Dr. S.K. Maitra, Usha Clinic began as a modest homeopathic practice in Behala, Kolkata. What started as a single-room clinic has grown into a renowned center for classical homeopathic treatment, now led by Dr. Atanu Kumar Maitra, DMS, CAH.
               </p>
               <p className="text-gray-700 mb-6">
-                Over our 55+ years of service, we've treated more than 10 lakh patients with a success rate exceeding 70%. Our clinic has been a healing haven for generations of families in Kolkata and beyond.
+                Over our 55+ years of service, we&apos;ve treated more than 10 lakh patients with a success rate exceeding 70%. Our clinic has been a healing haven for generations of families in Kolkata and beyond.
               </p>
               <p className="text-gray-700">
                 Located at <strong>23/B/13, Ramkrishna Sarani, Vivekananda Pally, Behala, Kolkata - 700060</strong>, our clinic stands beside Kishore Bharati school and Nivedita College, opposite Vivekananda Sporting club.
