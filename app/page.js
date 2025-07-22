@@ -194,6 +194,88 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Successful Treatments Section */}
+      <div className="bg-white py-20 px-8 md:px-20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-green-800 mb-12 text-center">Successful Treatment of Following Diseases</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-green-50 rounded-lg p-6">
+              <h3 className="text-2xl font-bold text-green-800 mb-4">Chronic Conditions</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">1.</span>
+                  <span>Migraine</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">2.</span>
+                  <span>Chronic Sinusitis</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">3.</span>
+                  <span>Allergic Rhinitis</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">4.</span>
+                  <span>Chronic Tonsillitis</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">5.</span>
+                  <span>Frozen Shoulder</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">6.</span>
+                  <span>Cervical Spondylosis</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">7.</span>
+                  <span>Dyspepsia</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-green-50 rounded-lg p-6">
+              <h3 className="text-2xl font-bold text-green-800 mb-4">Specialized Treatments</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">8.</span>
+                  <span>Fatty Liver</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">9.</span>
+                  <span>All Children Diseases</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">10.</span>
+                  <span>Female Diseases (Menstrual Disorders, PCOD)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">11.</span>
+                  <span>Hair Fall Treatment</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">12.</span>
+                  <span>Skin Diseases</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">13.</span>
+                  <span>Osteoarthritis</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">14.</span>
+                  <span>Prostatic Hypertrophy</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold text-green-800 mr-2">15.</span>
+                  <span>And many more chronic conditions</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-8 text-center text-gray-600 italic">
+            <p>Dr. Atanu Kumar Maitra, USHA CLINIC - Providing effective homeopathic solutions since 1967</p>
+          </div>
+        </div>
+      </div>
+
       {/* Testimonials Section */}
       <div className="bg-white py-20 px-8 md:px-20">
         <div className="max-w-6xl mx-auto">
