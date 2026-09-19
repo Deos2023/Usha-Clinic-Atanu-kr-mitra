@@ -1,336 +1,411 @@
 "use client";
 import Image from "next/image";
-import { BookOpen, Award, Users, GraduationCap, FileText, HeartPulse, Leaf } from "lucide-react";
+import Link from "next/link";
+import {
+  BookOpen,
+  Award,
+  Users,
+  GraduationCap,
+  FileText,
+  HeartPulse,
+  Leaf,
+  CheckCircle2,
+  Sparkles,
+  ShieldCheck,
+  Phone,
+  Calendar,
+  Stethoscope,
+} from "lucide-react";
+import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 
 export default function About() {
+  const galleryItems = [
+    {
+      src: "/img1.jpg",
+      title: "Clinical Consultations",
+      subtitle: "Personalized case analysis",
+    },
+    {
+      src: "/img2.jpg",
+      title: "German Quality Remedies",
+      subtitle: "Strictly potentized dilutions",
+    },
+    {
+      src: "/img3.jpg",
+      title: "Decades of Healing",
+      subtitle: "Serving families since 1967",
+    },
+    {
+      src: "/img4.jpg",
+      title: "Community Service",
+      subtitle: "Dedicated medical outreach",
+    },
+  ];
+
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden bg-white text-slate-800">
       {/* Hero Section */}
-      <div className="relative w-full h-96">
-        <div className="absolute top-0 left-0 w-full h-full bg-green-800">
-         
-        </div>
-        <div className="relative z-10 flex flex-col justify-center items-center h-full w-full px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            About Usha Clinic
+      <section className="relative w-full pt-24 pb-16 md:pt-28 md:pb-20 bg-gradient-to-b from-green-950 via-emerald-900 to-green-900 text-white overflow-hidden">
+        {/* Ambient background glows */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-400/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-teal-400/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-emerald-200 text-xs sm:text-sm font-semibold mb-6">
+            <Sparkles className="w-4 h-4 text-emerald-300" />
+            <span>
+              Three Generations of Classical Homeopathy • Established 1967
+            </span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 font-[family-name:var(--font-merienda)]">
+            About Usha Clinic & Legacy
           </h1>
-          <p className="text-white text-xl max-w-2xl">
-            Three Generations of Classical Homeopathic Care Since 1967
+
+          <p className="text-base sm:text-lg md:text-xl text-emerald-100/90 max-w-3xl mx-auto font-normal leading-relaxed mb-8">
+            Founded by <strong>Dr. S.K. Maitra</strong> in July 1967 and carried
+            forward by <strong>Dr. Atanu Kumar Maitra (DMS, CAH)</strong>,
+            providing compassionate, scientifically grounded classical
+            homeopathic healthcare in Kolkata for over 55 years.
           </p>
         </div>
-        <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#ffffff" d="M0,0 C360,150 1080,0 1440,150 L1440,150 L0,150 Z" />
-        </svg>
-      </div>
 
-      {/* Our Legacy Section */}
-      <div className="bg-white py-20 px-8 md:px-20">
+        {/* Wave divider */}
+        <div className="absolute -bottom-1 left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
+          <svg
+            className="relative block w-full h-12 sm:h-20 text-white"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,40 L1200,120 L0,120 Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </div>
+      </section>
+
+      {/* Our Healing Legacy Section */}
+      <section className="py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-green-800 mb-12 text-center">
-            Our Healing Legacy
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
-              <p className="text-gray-700 mb-6">
-                Founded in July 1967 by Dr. S.K. Maitra, Usha Clinic began as a modest homeopathic practice in Behala, Kolkata. What started as a single-room clinic has grown into a renowned center for classical homeopathic treatment, now led by Dr. Atanu Kumar Maitra, DMS, CAH.
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-6 space-y-6 reveal-left">
+              <span className="inline-block px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+                Our Foundation
+              </span>
+
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight font-[family-name:var(--font-merienda)]">
+                Our Healing Legacy Since 1967
+              </h2>
+
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                Founded in July 1967 by{" "}
+                <strong className="text-gray-900">Dr. S.K. Maitra</strong>, Usha
+                Clinic began as a modest homeopathic practice in Behala,
+                Kolkata. What started as a dedicated neighborhood healing room
+                has grown into one of South Kolkata&apos;s most respected
+                centers for classical constitutional homeopathy.
               </p>
-              <p className="text-gray-700 mb-6">
-                Over our 55+ years of service, we&apos;ve treated more than 10 lakh patients with a success rate exceeding 70%. Our clinic has been a healing haven for generations of families in Kolkata and beyond.
+
+              <p className="text-gray-600 text-base leading-relaxed">
+                Over our 55+ years of continuous service, we have treated more
+                than{" "}
+                <strong className="text-emerald-800 font-semibold">
+                  10 lakh patients
+                </strong>{" "}
+                with an exceptional success rate exceeding 70% in chronic,
+                non-responsive ailments.
               </p>
-              <p className="text-gray-700">
-                Located at <strong>23/B/13, Ramkrishna Sarani, Vivekananda Pally, Behala, Kolkata - 700060</strong>, our clinic stands beside Kishore Bharati school and Nivedita College, opposite Vivekananda Sporting club.
-              </p>
+
+              <div className="p-5 rounded-2xl bg-emerald-50/60 border border-emerald-100 text-sm text-gray-700">
+                <p>
+                  📍 <strong>Clinic Address:</strong> 23/B/13, Ramkrishna
+                  Sarani, Vivekananda Pally, Behala, Kolkata - 700060 (Beside
+                  Kishore Bharati School & Nivedita College, opposite
+                  Vivekananda Sporting Club).
+                </p>
+              </div>
             </div>
-            <div className="relative h-80 rounded-lg overflow-hidden shadow-xl order-1 md:order-2">
-              <Image 
-                src="/img6.png" 
-                alt="Dr. Atanu Kumar Maitra"
-                fill
-                className="object-cover"
-              />
+
+            <div className="md:col-span-6 relative reveal-right">
+              <div className="relative h-[380px] sm:h-[440px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
+                <Image
+                  src="/img6.png"
+                  alt="Dr. Atanu Kumar Maitra Consultation"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div className="absolute bottom-6 left-6 right-6 text-white">
+                  <p className="text-xl font-bold">Dr. Atanu Kumar Maitra</p>
+                  <p className="text-xs text-emerald-200">
+                    Chief Physician • DMS, CAH (46+ Years Experience)
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      
-{/* Successful Treatments Section */}
-      <div className="bg-white py-20 px-8 md:px-20">
+      {/* Doctor's In-Depth Profile Section */}
+      <section className="py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-gradient-to-b from-slate-50 to-emerald-50/30 relative">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-green-800 mb-12 text-center">Successful Treatment of Following Diseases</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-2xl font-bold text-green-800 mb-4">Chronic Conditions</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">1.</span>
-                  <span>Migraine</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">2.</span>
-                  <span>Chronic Sinusitis</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">3.</span>
-                  <span>Allergic Rhinitis</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">4.</span>
-                  <span>Chronic Tonsillitis</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">5.</span>
-                  <span>Frozen Shoulder</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">6.</span>
-                  <span>Cervical Spondylosis</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">7.</span>
-                  <span>Dyspepsia</span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-2xl font-bold text-green-800 mb-4">Specialized Treatments</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">8.</span>
-                  <span>Fatty Liver</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">9.</span>
-                  <span>All Children Diseases</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">10.</span>
-                  <span>Female Diseases (Menstrual Disorders, PCOD)</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">11.</span>
-                  <span>Hair Fall Treatment</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">12.</span>
-                  <span>Skin Diseases</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">13.</span>
-                  <span>Osteoarthritis</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">14.</span>
-                  <span>Prostatic Hypertrophy</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-green-800 mr-2">15.</span>
-                  <span>And many more chronic conditions</span>
-                </li>
-              </ul>
-            </div>
+          <div className="text-center mb-16 reveal">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+              Physician Leadership
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 font-[family-name:var(--font-merienda)]">
+              Dr. Atanu Kumar Maitra (DMS, CAH)
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
+              A master clinician combining classical Hahnemannian principles
+              with four and a half decades of practical experience.
+            </p>
           </div>
-          <div className="mt-8 text-center text-gray-600 italic">
-            <p>Dr. Atanu Kumar Maitra, USHA CLINIC - Providing effective homeopathic solutions since 1967</p>
-          </div>
-        </div>
-      </div>
 
-      {/* Doctor's Profile Section */}
-      <div className="bg-green-50 py-30 px-8 md:px-20 relative">
-        <svg className="absolute top-0 left-0 w-full rotate-180" viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#ffffff" d="M0,0 C360,150 1080,0 1440,150 L1440,150 L0,150 Z" />
-        </svg>
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-green-800 mb-12 text-center">
-            About Dr. Atanu Kumar Maitra
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
-            <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
-              <Image 
-                src="/img7.png" 
-                alt="Dr. Maitra at work"
-                fill
-                className="object-cover"
-              />
+          <div className="grid md:grid-cols-12 gap-12 items-center mb-16">
+            <div className="md:col-span-5 relative reveal-left">
+              <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
+                <Image
+                  src="/img7.png"
+                  alt="Dr. Maitra at work"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
             </div>
-            <div>
-              <h3 className="text-2xl font-bold text-green-800 mb-4">Qualifications & Experience</h3>
-              <ul className="text-gray-700 space-y-3 mb-6">
-                <li className="flex items-start">
-                  <GraduationCap className="text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span>• DMS (Diploma in Medical Services), CAH (Certificate in Advanced Homeopathy)</span>
-                </li>
-                <li className="flex items-start">
-                  <Award className="text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span>• 46+ years of clinical experience in classical homeopathy</span>
-                </li>
-                <li className="flex items-start">
-                  <HeartPulse className="text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span>• Formerly attached with D.N. De Hospital and Ramkrishna Mission Homeo Medical Unit</span>
-                </li>
-                <li className="flex items-start">
-                  <Users className="text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span>• Treated over 10 lakh patients with 70%+ success rate</span>
-                </li>
-              </ul>
-              
-              <h3 className="text-2xl font-bold text-green-800 mb-4">Academic Contributions</h3>
-              <ul className="text-gray-700 space-y-3">
-                <li className="flex items-start">
-                  <FileText className="text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span>• Published numerous medical papers in journals and magazines</span>
-                </li>
-                <li className="flex items-start">
-                  <BookOpen className="text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span>• Regular speaker at medical seminars, Science Congress, and conferences</span>
-                </li>
-                <li className="flex items-start">
-                  <Leaf className="text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span>• Mentor to many homeopathic medical students</span>
-                </li>
-              </ul>
+
+            <div className="md:col-span-7 space-y-6 reveal-right">
+              <div className="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm space-y-3">
+                <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                  <GraduationCap className="text-emerald-700" /> Qualifications
+                  & Experience
+                </h3>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>
+                      <strong>DMS</strong> (Diploma in Medical Services),{" "}
+                      <strong>CAH</strong> (Certificate in Advanced Homeopathy)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>
+                      <strong>46+ years</strong> of dedicated clinical practice
+                      in classical constitutional homeopathy
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>
+                      Formerly attached with prestigious{" "}
+                      <strong>D.N. De Hospital</strong>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>
+                      Served at{" "}
+                      <strong>Ramkrishna Mission Homeo Medical Unit</strong>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm space-y-3">
+                <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                  <FileText className="text-emerald-700" /> Academic &
+                  Scientific Contributions
+                </h3>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>
+                      Published 100+ medical papers and articles in esteemed
+                      health journals
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>
+                      Invited speaker at National Science Congresses and medical
+                      conferences
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>
+                      Mentor to generations of practicing homeopathic doctors in
+                      West Bengal
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-        <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#ffffff" d="M0,0 C360,150 1080,0 1440,150 L1440,150 L0,150 Z" />
-        </svg>
-      </div>
+      </section>
 
       {/* Treatment Philosophy Section */}
-      <div className="bg-white py-20 px-8 md:px-20">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-green-800 mb-12 text-center">
-            Our Treatment Philosophy
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-bold text-green-800 mb-4">Classical Homeopathy</h3>
-              <p className="text-gray-700 mb-6">
-                At Usha Clinic, we practice classical homeopathy in its purest form, following the principles established by Dr. Samuel Hahnemann. Each treatment is personalized to the individual, not just the disease.
-              </p>
-              <p className="text-gray-700 mb-6">
-                We carefully select remedies based on complete symptom pictures and constitutional analysis, ensuring treatments address the root cause of illness rather than just suppressing symptoms.
-              </p>
-              
-              <h3 className="text-2xl font-bold text-green-800 mb-4">Medicine Quality</h3>
-              <p className="text-gray-700">
-                We dispense only the finest quality homeopathic medicines from reputed Indian and German manufacturers. Our medicines undergo strict quality control to ensure maximum efficacy.
-              </p>
+      <section className="py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-white">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+          <div className="md:col-span-6 space-y-6 reveal-left">
+            <span className="inline-block px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+              Our Core Philosophy
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 font-[family-name:var(--font-merienda)]">
+              Treating the Whole Person, Not Just Symptoms
+            </h2>
+            <p className="text-gray-600 text-base leading-relaxed">
+              At Usha Clinic, we practice classical homeopathy in its purest
+              form, adhering to the foundational principles laid down by Dr.
+              Samuel Hahnemann. We believe that disease is an expression of
+              internal vital disturbance.
+            </p>
+            <p className="text-gray-600 text-base leading-relaxed">
+              Instead of masking symptoms with suppressive drugs, each patient
+              receives an individualized single remedy matched to their genetic,
+              physical, and psychological profile to stimulate permanent
+              self-healing.
+            </p>
+            <div className="flex items-center gap-4 pt-2">
+              <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                <span>Zero Side Effects</span>
+              </div>
+              <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                <span>Zero Steroids</span>
+              </div>
             </div>
-            <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
-              <Image 
-                src="/img8.png" 
-                alt="Homeopathic Medicines"
+          </div>
+
+          <div className="md:col-span-6 relative reveal-right">
+            <div className="relative h-[360px] rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+              <Image
+                src="/img8.png"
+                alt="German Homeopathic Medicines at Usha Clinic"
                 fill
                 className="object-cover"
               />
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Community Service Section */}
-      <div className="bg-green-800 text-white py-40 px-8 md:px-20 relative">
-        <svg className="absolute top-0 left-0 w-full rotate-180" viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#ffffff" d="M0,0 C360,150 1080,0 1440,150 L1440,150 L0,150 Z" />
-        </svg>
-        
+      {/* Community Service & Key Metrics */}
+      <section className="bg-gradient-to-b from-green-900 to-emerald-950 text-white py-20 px-6 md:px-16 lg:px-24 relative">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">
-            Community Service & Affiliations
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="mb-6 text-lg">
-                Beyond our clinical practice, we are deeply committed to serving the community. Dr. Maitra has been associated with various charitable organizations throughout his career, providing free or subsidized treatment to those in need.
-              </p>
-              <p className="mb-6 text-lg">
-                Our clinic regularly participates in health camps and community awareness programs to promote the benefits of homeopathic medicine.
-              </p>
-              <p className="text-lg">
-                We believe in making quality homeopathic treatment accessible to all sections of society, regardless of their economic status.
-              </p>
+          <div className="text-center mb-16 reveal">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-800 text-emerald-200 text-xs font-bold uppercase tracking-wider mb-3">
+              Impact & Trust
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-merienda)]">
+              Community Service & Milestones
+            </h2>
+            <p className="text-emerald-100/80 max-w-2xl mx-auto text-base">
+              Dedicated to making classical homeopathic healing accessible to
+              all sections of society.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15 text-center reveal-scale delay-100">
+              <div className="text-4xl font-bold text-emerald-300 mb-2">
+                55+
+              </div>
+              <div className="text-sm text-emerald-100">Years of Service</div>
             </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-green-700 p-6 rounded-lg text-center">
-                <div className="text-3xl font-bold mb-2">55+</div>
-                <div>Years of Service</div>
+            <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15 text-center reveal-scale delay-200">
+              <div className="text-4xl font-bold text-emerald-300 mb-2">
+                10 Lakh+
               </div>
-              <div className="bg-green-700 p-6 rounded-lg text-center">
-                <div className="text-3xl font-bold mb-2">10L+</div>
-                <div>Patients Treated</div>
+              <div className="text-sm text-emerald-100">Patients Treated</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15 text-center reveal-scale delay-300">
+              <div className="text-4xl font-bold text-emerald-300 mb-2">
+                70%+
               </div>
-              <div className="bg-green-700 p-6 rounded-lg text-center">
-                <div className="text-3xl font-bold mb-2">70%</div>
-                <div>Success Rate</div>
+              <div className="text-sm text-emerald-100">Success Rate</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15 text-center reveal-scale delay-400">
+              <div className="text-4xl font-bold text-emerald-300 mb-2">
+                100+
               </div>
-              <div className="bg-green-700 p-6 rounded-lg text-center">
-                <div className="text-3xl font-bold mb-2">100+</div>
-                <div>Medical Papers Published</div>
-              </div>
+              <div className="text-sm text-emerald-100">Medical Papers</div>
             </div>
           </div>
         </div>
-        
-        <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#ffffff" d="M0,0 C360,150 1080,0 1440,150 L1440,150 L0,150 Z" />
-        </svg>
-      </div>
+      </section>
 
-      {/* Clinic Gallery Section */}
-      <div className="bg-white py-20 px-8 md:px-20">
+      {/* Verified Clinic Gallery Section */}
+      <section className="py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-green-800 mb-12 text-center">
-            Usha Clinic Through The Years
-          </h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
-              <Image src="/clinic-old.jpg" alt="Usha Clinic in early years" fill className="object-cover" />
-            </div>
-            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
-              <Image src="/dr-family.jpg" alt="Dr. Maitra with family" fill className="object-cover" />
-            </div>
-            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
-              <Image src="/seminar.jpg" alt="Medical seminar" fill className="object-cover" />
-            </div>
-            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
-              <Image src="/health-camp.jpg" alt="Health camp" fill className="object-cover" />
-            </div>
+          <div className="text-center mb-16 reveal">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+              Visual Highlights
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 font-[family-name:var(--font-merienda)]">
+              Usha Clinic Through The Years
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-base">
+              A glimpse into our clinical practice, authentic remedies, and
+              decades of healing heritage.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {galleryItems.map((item, idx) => (
+              <div
+                key={idx}
+                className="relative h-64 rounded-2xl overflow-hidden shadow-lg border border-slate-100 group cursor-pointer reveal-scale"
+                style={{ transitionDelay: `${idx * 100}ms` }}
+              >
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
+                  <h4 className="font-bold text-base">{item.title}</h4>
+                  <p className="text-xs text-emerald-200">{item.subtitle}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* CTA Section */}
-      <div className="bg-white py-16 px-8 text-center border-t border-gray-200">
-        <h2 className="text-3xl font-bold text-green-800 mb-6">Experience Classical Homeopathy</h2>
-        <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-          Schedule a consultation with Dr. Atanu Kumar Maitra today
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <a 
-            href="tel:9830409535" 
-            className="bg-green-700 text-white px-8 py-3 rounded font-semibold hover:bg-green-800 transition-colors"
-          >
-            Call: 9830409535
-          </a>
-          <a 
-            href="mailto:atanumaitra2013@gmail.com" 
-            className="bg-white text-green-700 px-8 py-3 rounded font-semibold border border-green-700 hover:bg-green-50 transition-colors"
-          >
-            Email Us
-          </a>
+      {/* CTA Action Banner */}
+      <section className="bg-gradient-to-r from-emerald-900 to-teal-950 text-white py-16 px-6 text-center reveal-scale">
+        <div className="max-w-4xl mx-auto space-y-6">
+          <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-merienda)]">
+            Experience the Healing Power of Homeopathy
+          </h2>
+          <p className="text-emerald-100 text-base max-w-2xl mx-auto">
+            Schedule a personal consultation with Dr. Atanu Kumar Maitra at Usha
+            Clinic today.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <a
+              href="tel:9830409535"
+              className="bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg transition-all hover:scale-105 flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4" />
+              <span>Call: 9830409535</span>
+            </a>
+            <Link
+              href="/contact"
+              className="bg-white hover:bg-emerald-50 text-emerald-900 font-bold py-3.5 px-8 rounded-xl shadow-lg transition-all hover:scale-105"
+            >
+              Book Appointment
+            </Link>
+          </div>
         </div>
-        <p className="mt-4 text-gray-600">
-          Landline: 033-35948742 | Alt: 9230559443 / 9830579535
-        </p>
-      </div>
+      </section>
     </div>
   );
 }

@@ -1,7 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { FaPhone, FaWhatsapp, FaArrowUp, FaMapMarkerAlt, FaClock, FaEnvelope } from "react-icons/fa";
+import {
+  FaPhone,
+  FaWhatsapp,
+  FaArrowUp,
+  FaMapMarkerAlt,
+  FaClock,
+  FaEnvelope,
+} from "react-icons/fa";
 
 // Floating Buttons
 export function FloatingButtons() {
@@ -16,41 +23,52 @@ export function FloatingButtons() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none">
       {/* WhatsApp Button */}
       <a
         href="https://wa.me/919830409535"
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors"
+        className="pointer-events-auto bg-green-500 hover:bg-green-600 text-white p-3.5 sm:p-4 rounded-full shadow-xl hover:shadow-green-500/30 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center group"
         aria-label="Chat on WhatsApp"
+        title="Chat with Dr. Maitra on WhatsApp"
       >
-        <FaWhatsapp className="text-2xl" />
+        <FaWhatsapp className="text-xl sm:text-2xl group-hover:rotate-12 transition-transform" />
       </a>
 
       {/* Call Button */}
       <a
         href="tel:9830409535"
-        className="bg-teal-700 text-white p-4 rounded-full shadow-lg hover:bg-teal-800 transition-colors"
-        aria-label="Call us"
+        className="pointer-events-auto bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white p-3.5 sm:p-4 rounded-full shadow-xl hover:shadow-emerald-600/30 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center group"
+        aria-label="Call Usha Clinic"
+        title="Call 9830409535"
       >
-        <FaPhone className="text-2xl" />
+        <FaPhone className="text-xl sm:text-2xl group-hover:scale-110 transition-transform" />
       </a>
 
       {/* Scroll to top button */}
-      {showScrollButton && (
-        <button
-          onClick={scrollToTop}
-          className="bg-white text-teal-700 p-4 rounded-full shadow-lg hover:bg-gray-100 transition-colors border border-teal-200"
-          aria-label="Scroll to top"
-        >
-          <FaArrowUp className="text-2xl" />
-        </button>
-      )}
+      <button
+        onClick={scrollToTop}
+        className={`pointer-events-auto bg-slate-900/90 hover:bg-slate-900 text-emerald-400 hover:text-emerald-300 p-3.5 sm:p-4 rounded-full shadow-2xl hover:shadow-emerald-500/20 border border-emerald-500/40 hover:scale-110 active:scale-95 transition-all duration-500 flex items-center justify-center group ${
+          showScrollButton
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-8 scale-75 pointer-events-none"
+        }`}
+        aria-label="Scroll smoothly to top"
+        title="Back to top"
+      >
+        <FaArrowUp className="text-lg sm:text-xl group-hover:-translate-y-1 transition-transform duration-300" />
+      </button>
     </div>
   );
 }
@@ -87,13 +105,21 @@ export function FooterWithMap() {
               <div className="flex items-center">
                 <FaPhone className="text-teal-300 mr-3" />
                 <div>
-                  <a href="tel:9674998665" className="hover:text-teal-300">9674998665</a>,{" "}
-                  <a href="tel:8981617236" className="hover:text-teal-300">8981617236</a>
+                  <a href="tel:9674998665" className="hover:text-teal-300">
+                    9674998665
+                  </a>
+                  ,{" "}
+                  <a href="tel:8981617236" className="hover:text-teal-300">
+                    8981617236
+                  </a>
                 </div>
               </div>
               <div className="flex items-center">
                 <FaEnvelope className="text-teal-300 mr-3" />
-                <a href="mailto:joyhealthcareskol@gmail.com" className="hover:text-teal-300">
+                <a
+                  href="mailto:joyhealthcareskol@gmail.com"
+                  className="hover:text-teal-300"
+                >
                   joyhealthcareskol@gmail.com
                 </a>
               </div>
@@ -108,11 +134,31 @@ export function FooterWithMap() {
           <div>
             <h3 className="text-2xl font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><Link href="/" className="hover:text-teal-300">Home</Link></li>
-              <li><Link href="/about" className="hover:text-teal-300">About Us</Link></li>
-              <li><Link href="/services" className="hover:text-teal-300">Services</Link></li>
-              <li><Link href="/contact" className="hover:text-teal-300">Contact</Link></li>
-              <li><Link href="/equipment" className="hover:text-teal-300">Medical Equipment</Link></li>
+              <li>
+                <Link href="/" className="hover:text-teal-300">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-teal-300">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-teal-300">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-teal-300">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/equipment" className="hover:text-teal-300">
+                  Medical Equipment
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -134,7 +180,9 @@ export function FooterWithMap() {
         </div>
 
         <div className="border-t border-teal-800 mt-12 pt-6 text-center text-teal-300">
-          <p>© {new Date().getFullYear()} Joy Health Cares. All Rights Reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Joy Health Cares. All Rights Reserved.
+          </p>
         </div>
       </div>
     </footer>
