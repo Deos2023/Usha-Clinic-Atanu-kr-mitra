@@ -6,20 +6,12 @@ export default function ScrollReveal() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Smooth scroll to top on page navigation
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    if (typeof window === "undefined") return;
 
-    // Initialize IntersectionObserver for scroll-reveal animations
     let observer;
 
-    const initObserver = () => {
-      if (
-        typeof window === "undefined" ||
-        !("IntersectionObserver" in window)
-      ) {
-        // Fallback for environments without IntersectionObserver
+    const setupObserver = () => {
+      if (!("IntersectionObserver" in window)) {
         document
           .querySelectorAll(
             ".reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade, [data-reveal]",
@@ -37,38 +29,39 @@ export default function ScrollReveal() {
         });
       };
 
-      const observerOptions = {
+      observer = new IntersectionObserver(observerCallback, {
         root: null,
-        rootMargin: "0px 0px -40px 0px",
-        threshold: 0.08,
-      };
+        rootMargin: "0px 0px -30px 0px",
+        threshold: 0.05,
+      });
 
-      observer = new IntersectionObserver(observerCallback, observerOptions);
-
-      // Select all elements marked for reveal animations
       const elements = document.querySelectorAll(
         ".reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade, [data-reveal]",
       );
 
       elements.forEach((el) => {
-        // If element is already in viewport on load, reveal immediately
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-          el.classList.add("revealed");
-        } else if (!el.classList.contains("revealed")) {
+        if (!el.classList.contains("revealed")) {
           observer.observe(el);
         }
       });
     };
 
-    const timer = setTimeout(initObserver, 80);
-
-    return () => {
-      clearTimeout(timer);
-      if (observer) {
-        observer.disconnect();
-      }
-    };
+    // Use requestIdleCallback or setTimeout to defer execution past critical hydration
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(setupObserver, {
+        timeout: 250,
+      });
+      return () => {
+        window.cancelIdleCallback(idleId);
+        if (observer) observer.disconnect();
+      };
+    } else {
+      const timer = setTimeout(setupObserver, 80);
+      return () => {
+        clearTimeout(timer);
+        if (observer) observer.disconnect();
+      };
+    }
   }, [pathname]);
 
   return null;

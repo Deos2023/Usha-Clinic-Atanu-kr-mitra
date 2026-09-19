@@ -42,6 +42,7 @@ export default function Footer() {
                   alt="USHA CLINIC"
                   width={180}
                   height={50}
+                  sizes="180px"
                   className="h-10 sm:h-11 w-auto object-contain"
                 />
               </div>

@@ -131,8 +131,9 @@ export default function About() {
               <div className="relative h-[380px] sm:h-[440px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
                 <Image
                   src="/img6.png"
-                  alt="Dr. Atanu Kumar Maitra Consultation"
+                  alt="Dr. Atanu Kumar Maitra - Best Homeopathy Doctor in Behala Kolkata Consultation at Usha Clinic"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -169,8 +170,9 @@ export default function About() {
               <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
                 <Image
                   src="/img7.png"
-                  alt="Dr. Maitra at work"
+                  alt="Dr. Atanu Kumar Maitra DMS CAH - Homeopathy Doctor in Behala diagnosing patient case"
                   fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -286,8 +288,9 @@ export default function About() {
             <div className="relative h-[360px] rounded-3xl overflow-hidden shadow-xl border-4 border-white">
               <Image
                 src="/img8.png"
-                alt="German Homeopathic Medicines at Usha Clinic"
+                alt="Pure German Homeopathic Medicines and Dilutions at Usha Clinic Behala Kolkata"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
@@ -365,8 +368,9 @@ export default function About() {
               >
                 <Image
                   src={item.src}
-                  alt={item.title}
+                  alt={`${item.title} - Best Homeopathy Clinic in Behala Kolkata`}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">

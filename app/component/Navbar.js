@@ -113,6 +113,7 @@ export default function Navbar() {
                     alt="USHA CLINIC"
                     width={160}
                     height={45}
+                    sizes="160px"
                     className="h-8 sm:h-9 w-auto object-contain"
                     priority
                   />

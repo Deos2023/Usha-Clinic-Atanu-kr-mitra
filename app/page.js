@@ -201,10 +201,16 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTitle((prev) => (prev + 1) % TITLES.length);
-    }, 3200);
-    return () => clearInterval(interval);
+    let interval;
+    const timer = setTimeout(() => {
+      interval = setInterval(() => {
+        setCurrentTitle((prev) => (prev + 1) % TITLES.length);
+      }, 3500);
+    }, 1500);
+    return () => {
+      clearTimeout(timer);
+      if (interval) clearInterval(interval);
+    };
   }, []);
 
   const categories = [
@@ -225,12 +231,25 @@ export default function Home() {
     <div className="relative w-full overflow-hidden bg-white text-slate-800">
       {/* Hero Section */}
       <section className="relative w-full min-h-[92vh] sm:min-h-screen lg:min-h-[105vh] flex flex-col justify-between overflow-hidden">
+        {/* Instant LCP High-Priority Background Image */}
+        <Image
+          src="/hero_poster.webp"
+          alt="Best Homeopathy Doctor in Behala Kolkata - Usha Clinic Hero Background"
+          fill
+          priority
+          sizes="100vw"
+          quality={75}
+          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-95"
+        />
+
         {/* Background Video with Crystal-Clear Gradient Overlay */}
         <video
           autoPlay
           muted
           loop
           playsInline
+          preload="none"
+          poster="/hero_poster.webp"
           className="absolute inset-0 w-full h-full object-cover object-center filter brightness-95"
         >
           <source src="/vid3.mp4" type="video/mp4" />
@@ -246,7 +265,7 @@ export default function Home() {
           {/* Top Trust Pill */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-emerald-200 text-xs sm:text-sm font-normal tracking-wide mb-4 sm:mb-4 animate-fade-in shadow-lg font-[family-name:var(--font-merienda)]">
             <Sparkles className="w-4 h-4 text-emerald-300" />
-            <span>Classical Homeopathy Since 1967 • Behala, Kolkata</span>
+            <span>Best Homeopathy Doctor in Behala, Kolkata • Since 1967</span>
           </div>
 
           <h1
@@ -261,12 +280,17 @@ export default function Home() {
           </h1>
 
           <p className="mb-7 sm:mb-10 text-sm sm:text-lg md:text-xl text-slate-100/95 max-w-3xl mx-auto font-light sm:font-normal leading-[1.75] sm:leading-relaxed tracking-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] font-[family-name:var(--font-plus-jakarta)]">
+            Consult{" "}
             <strong className="text-white font-medium text-emerald-100">
               Dr. Atanu Kumar Maitra (DMS, CAH)
-            </strong>{" "}
-            brings over 46 years of clinical excellence, continuing the trusted
-            3-generation healing legacy of Usha Clinic for acute and chronic
-            conditions.
+            </strong>
+            , widely regarded as the{" "}
+            <strong className="text-emerald-200 font-semibold">
+              Best Homeopathy Doctor in Behala, Kolkata
+            </strong>
+            . Bringing over 46 years of clinical excellence at USHA CLINIC for
+            chronic diseases, sinusitis, hair fall, skin allergies, and
+            digestive ailments across Behala, Thakurpukur, and Kolkata.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-6 font-[family-name:var(--font-plus-jakarta)]">
@@ -274,7 +298,7 @@ export default function Home() {
               href="#contact"
               className="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-white px-8 py-3.5 sm:py-4 rounded-xl font-medium text-base sm:text-lg transition-all duration-300 shadow-xl shadow-emerald-950/40 hover:scale-105 flex items-center justify-center gap-2 group tracking-wide"
             >
-              <span>Book an Appointment</span>
+              <span>Book Consultation</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
 
@@ -335,9 +359,11 @@ export default function Home() {
             <div className="relative h-[380px] sm:h-[450px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
               <Image
                 src="/img5.png"
-                alt="Usha Clinic Consultation Room"
+                alt="Dr. Atanu Kumar Maitra - Best Homeopathy Doctor in Behala Kolkata Consultation Room at Usha Clinic"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
               <div className="absolute bottom-6 left-6 right-6 text-white">
@@ -345,7 +371,7 @@ export default function Home() {
                   Behala, Kolkata
                 </span>
                 <p className="text-lg font-bold">
-                  Trusted Healing Center Since 1967
+                  Best Homeopathy Clinic in Behala Since 1967
                 </p>
                 <p className="text-xs text-emerald-100">
                   Founded by Dr. S.K. Maitra • Headed by Dr. Atanu Kumar Maitra
@@ -370,32 +396,45 @@ export default function Home() {
           <div className="md:col-span-6 space-y-6 reveal-right">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wide">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              <span>Authentic Classical Homeopathy</span>
+              <span>Authentic Classical Homeopathy in South Kolkata</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight font-[family-name:var(--font-merienda)]">
-              Welcome to <span className="text-emerald-800">Usha Clinic</span>
+              Welcome to <span className="text-emerald-800">USHA CLINIC</span>
             </h2>
 
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-              Conveniently located at{" "}
+              If you are searching for the{" "}
+              <strong className="text-emerald-900 font-semibold">
+                Best Homeopathy Doctor in Behala, Kolkata
+              </strong>{" "}
+              or an experienced{" "}
+              <strong className="text-emerald-900 font-semibold">
+                Homeopathy Doctor in Thakurpukur Kolkata
+              </strong>
+              , USHA CLINIC offers unmatched clinical expertise. Conveniently
+              located at{" "}
               <strong className="text-gray-900 font-semibold">
                 23/B/13, Ramkrishna Sarani, Vivekananda Pally, Behala, Kolkata -
                 700060
               </strong>{" "}
-              (beside Kishore Bharati School and Nivedita College, opposite
+              (beside Kishore Bharati School & Nivedita College, opposite
               Vivekananda Sporting Club).
             </p>
 
             <p className="text-gray-600 text-base leading-relaxed">
-              Founded in July 1967 by Dr. S.K. Maitra, Usha Clinic has served
-              over ten lakh patients across generations. Today,{" "}
-              <strong className="text-emerald-900">
+              Founded in July 1967 by Dr. S.K. Maitra, USHA CLINIC has earned
+              the distinction of being the{" "}
+              <strong className="text-gray-900 font-semibold">
+                Best Homeopathy Clinic in Behala
+              </strong>
+              , treating over 10 lakh patients across 3 generations. Today,{" "}
+              <strong className="text-emerald-900 font-semibold">
                 Dr. Atanu Kumar Maitra (DMS, CAH)
               </strong>{" "}
-              continues this sacred legacy, combining classical Hahnemannian
-              principles with comprehensive constitutional case analysis to
-              treat root causes without side effects.
+              continues this legacy, providing constitutional remedies tailored
+              to cure chronic, deep-seated health conditions permanently without
+              side effects.
             </p>
 
             {/* Operating Hours Card */}
@@ -429,7 +468,11 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-xs text-emerald-800 font-medium mt-3 pt-3 border-t border-emerald-200/50">
-                <strong>Emergency Inquiries:</strong> Available on call anytime.
+                <strong>Emergency Inquiries:</strong> Available on call 24/7 at{" "}
+                <a href="tel:9830409535" className="underline font-bold">
+                  9830409535
+                </a>
+                .
               </p>
             </div>
           </div>
@@ -843,6 +886,164 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Local Serving Areas & Catchment Hub (High-Intent Local SEO) */}
+      <section className="py-20 px-6 md:px-16 lg:px-24 bg-white border-t border-slate-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14 reveal">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+              Location & Accessibility
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 font-[family-name:var(--font-merienda)]">
+              Serving Patients Across Behala, Thakurpukur & South Kolkata
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
+              Conveniently located at Behala (Vivekananda Pally), USHA CLINIC is
+              easily accessible from all major neighborhoods across South
+              Kolkata and West Bengal.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {/* Area 1 */}
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-emerald-400 hover:shadow-lg transition-all group reveal-scale delay-100">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                  📍
+                </div>
+                <h3 className="font-bold text-lg text-gray-900 group-hover:text-emerald-800 transition-colors">
+                  Behala Core & Chowrasta
+                </h3>
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                Immediate neighborhood coverage for Chowrasta, Tram Depot,
+                Sakher Bazar, Silpara, and Roy Bahadur Road (2–5 mins).
+              </p>
+              <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md">
+                Best Homeopathy Doctor in Behala
+              </span>
+            </div>
+
+            {/* Area 2 */}
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-emerald-400 hover:shadow-lg transition-all group reveal-scale delay-200">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                  📍
+                </div>
+                <h3 className="font-bold text-lg text-gray-900 group-hover:text-emerald-800 transition-colors">
+                  Thakurpukur & Joka
+                </h3>
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                Direct accessibility along Diamond Harbour Road, 3A Bus Stand,
+                and Joka Metro corridor (5–10 mins).
+              </p>
+              <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md">
+                Homeopathy Doctor in Thakurpukur kolkata
+              </span>
+            </div>
+
+            {/* Area 3 */}
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-emerald-400 hover:shadow-lg transition-all group reveal-scale delay-300">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                  📍
+                </div>
+                <h3 className="font-bold text-lg text-gray-900 group-hover:text-emerald-800 transition-colors">
+                  Taratala & New Alipore
+                </h3>
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                Swift connectivity via Taratala Flyover, Majherhat,
+                Buroshibtala, and New Alipore Block residential areas (10–15
+                mins).
+              </p>
+              <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md">
+                Best Homeopathy Doctor in Kolkata
+              </span>
+            </div>
+
+            {/* Area 4 */}
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-emerald-400 hover:shadow-lg transition-all group reveal-scale delay-100">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                  📍
+                </div>
+                <h3 className="font-bold text-lg text-gray-900 group-hover:text-emerald-800 transition-colors">
+                  James Long Sarani & Parnasree
+                </h3>
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                Direct bypass connectivity connecting Parnasree Pally,
+                Kadamtala, Dakshin Behala Road, and Barisha.
+              </p>
+              <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md">
+                Best Homeopathy Clinic in Behala
+              </span>
+            </div>
+
+            {/* Area 5 */}
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-emerald-400 hover:shadow-lg transition-all group reveal-scale delay-200">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                  📍
+                </div>
+                <h3 className="font-bold text-lg text-gray-900 group-hover:text-emerald-800 transition-colors">
+                  Tollygunge & Haridevpur
+                </h3>
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                Connected via Motilal Gupta Road and Karunamoyee Bridge reaching
+                Kudghat and Mahanayak Uttam Kumar Metro.
+              </p>
+              <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md">
+                Homeopathy Doctor in Behala
+              </span>
+            </div>
+
+            {/* Area 6 */}
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-emerald-400 hover:shadow-lg transition-all group reveal-scale delay-300">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                  📍
+                </div>
+                <h3 className="font-bold text-lg text-gray-900 group-hover:text-emerald-800 transition-colors">
+                  Greater Kolkata & Districts
+                </h3>
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                Patients regularly travel from Howrah, Salt Lake, North Kolkata,
+                and South 24 Parganas for specialized chronic care.
+              </p>
+              <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md">
+                10 Lakh+ Patients Treated
+              </span>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 border border-emerald-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-center sm:text-left">
+              <h4 className="font-bold text-emerald-950 text-base">
+                Need Directions to USHA CLINIC?
+              </h4>
+              <p className="text-sm text-emerald-800/90">
+                23/B/13, Ramkrishna Sarani, Vivekananda Pally, Behala, Kolkata -
+                700060 (Beside Kishore Bharati School & Nivedita College, Opp.
+                Vivekananda Sporting Club).
+              </p>
+            </div>
+            <a
+              href="https://maps.google.com/?q=22.50069,88.308738"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-emerald-800 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-all shadow-md flex-shrink-0 flex items-center gap-2"
+            >
+              <span>Get Directions</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </section>
